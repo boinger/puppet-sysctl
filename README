@@ -5,10 +5,9 @@
 This modules allows to configure sysctl.
 
 = Usage
-  
-  node "mynode" inherits ... {
-    sysctl::value { "vm.nr_hugepages": value => "1583"}
-  }
+
+  Basic:
+  sysctl::value { "vm.overcommit_memory": value => '1'; }
 
   When setting a key that contains multiple values, use a tab to separate the
   values:
@@ -27,7 +26,7 @@ This modules allows to configure sysctl.
     "net.ipv6.conf.all.forwarding" => { value => 1 },
   }
 
-  # Specify defaults for all the sysctl::value to be created (
+  # Specify defaults for all the sysctl::value to be created
   $my_sysctl_defaults = {
     require => Package['aa']
   }
@@ -38,13 +37,10 @@ This modules allows to configure sysctl.
   It is preferred that you set your exec path globally. This is usually done
   in site.pp and would look something like this (adjust for your environment):
 
-  # Set a site-wide global path so we don't have to explicitly specify a path
-  # for each exec.
-  Exec { path => '/usr/bin:/usr/sbin/:/bin:/sbin' }
-
 = License
 
  Copyright (C) 2011 Immerda Project Group
  Author mh <mh@immerda.ch>
  Modified by Nicolas Zin <nicolas.zin@savoirfairelinux.com>
+ Modified by Jeff Vier <jeff@jeffvier.com>
  Licence: GPL v2
