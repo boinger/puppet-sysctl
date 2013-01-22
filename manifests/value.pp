@@ -16,9 +16,15 @@ define sysctl::value (
     before => Exec["exec_sysctl_${real_key}"],
   }
 
-  $command = "/sbin/sysctl -w ${real_key}=\"${val1}\""
+  $command = $::kernel ? {
+    openbsd => "/sbin/sysctl ${real_key}=\"${val1}\"",
+    default => "/sbin/sysctl -w ${real_key}=\"${val1}\"",
+  }
 
-  $unless = "/sbin/sysctl ${real_key} | grep -q ' = ${val1}'"
+  $unless = $::kernel ? {
+    openbsd => "/sbin/sysctl ${real_key} | grep -q '=${val1}\$'",
+    default => "/sbin/sysctl ${real_key} | grep -q ' = ${val1}'",
+  }
 
   exec { "exec_sysctl_${real_key}" :
       command => $command,
