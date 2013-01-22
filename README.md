@@ -4,10 +4,12 @@
 
 ##Usage##
 
-  Basic:
+####Basic:
 ```puppet
   sysctl::value { "vm.overcommit_memory": value => '1'; }
 ```
+
+####Multiple Values:
   When setting a key that contains multiple values, use a tab to separate the
   values:
 ```puppet
@@ -17,6 +19,7 @@
     }
   }
 ```
+####Avoid Dupes:
   To avoid duplication the sysctl::value calls multiple settings can be 
   managed like this:
 ```puppet
@@ -35,8 +38,8 @@
 
 ##License##
 
- Copyright (C) 2011 Immerda Project Group
- Author mh <mh@immerda.ch>
- Modified by Nicolas Zin <nicolas.zin@savoirfairelinux.com>
- Modified by Jeff Vier <jeff@jeffvier.com>
+ Copyright (C) 2011 Immerda Project Group<br />
+ Author mh <mh@immerda.ch><br />
+ Modified by Nicolas Zin <nicolas.zin@savoirfairelinux.com><br />
+ Modified by Jeff Vier <jeff@jeffvier.com><br />
  Licence: GPL v2
