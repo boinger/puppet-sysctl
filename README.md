@@ -59,4 +59,3 @@ Modified by Artem Sidorenko <artem@2realities.com><br />
 Modified by Jeff Vier <jeff@jeffvier.com><br />
 
 Licence: GPL v2
->>>>>>> 26b1691c390d6c3c0d8910871df0ac1f5a5608e3
